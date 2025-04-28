@@ -312,12 +312,12 @@ export const ratings = [
 export const contactInfo = [
   {
     type: "email",
-    to: "Ojetundeopeyemi0@gmail.com",
+    to: "luxuecollection@gmail.com",
     icon: Email,
   },
   {
     type: "Phone Number",
-    to: "+20 11 16798756",
+    to: "+2349054579781",
     icon: TelIcon,
   },
   {
@@ -334,43 +334,43 @@ export const contactInfo = [
 export const privacyInfo = [
   {
     id: 1,
-    title: "About our Privacy",
-    desc: "At Lollys, we value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard the data you share with us when you use our website or services.",
+    title: "About Our Privacy Policy",
+    desc: "At Luxue, we take your privacy seriously and are dedicated to safeguarding your personal information. This Privacy Policy details how we collect, use, and protect the data you provide when interacting with our website or services.",
   },
   {
     id: 2,
-    title: "Who we are",
-    desc: "At Lollys, we blend style with innovation and protection with personality. Our Product/ Accessories are more than accessories—they’re statements of identity, built with tech, sustainability, and timeless design. We create eyewear that empowers bold self-expression and redefines how you see the world.",
+    title: "Who We Are",
+    desc: "Luxue is a brand that merges cutting-edge design with functionality, creating products that not only enhance your style but also embody a sense of individuality. Our accessories are more than just accessories—they represent personal expression, crafted with sustainable materials, innovative technology, and timeless elegance.",
   },
   {
     id: 3,
-    title: "The Data we collect about you",
-    desc: "We ONLY collect personal data that you voluntarily provide to us, including your name, email address, phone number, and delivery information when you place an order, sign up for our newsletter, or contact us directly.",
+    title: "The Data We Collect",
+    desc: "We only gather personal information that you willingly share with us, including your name, email address, phone number, and shipping details when you place an order, subscribe to our newsletter, or contact us directly for support.",
   },
   {
     id: 4,
-    title: "Cookies and other identifiers",
-    desc: " We use cookies and similar technologies to improve the functionality of our website, enhance user experience, personalize content, and analyze traffic patterns. These technologies may include device identifiers and session cookies, which allow us to remember user preferences, maintain secure login sessions, and understand how visitors interact with our website. Users have the option to disable or manage cookies through their browser settings. By continuing to use our website, you acknowledge and consent to our use of cookies in accordance with our Privacy Policy.",
+    title: "Cookies and Tracking Technologies",
+    desc: "We utilize cookies and similar technologies to enhance our website’s functionality, personalize your browsing experience, and analyze usage trends. These may include device identifiers and session cookies that help us remember your preferences, ensure secure logins, and understand how users engage with our site. You can manage or disable cookies through your browser settings, and by continuing to use our site, you consent to our use of cookies as described in this Privacy Policy.",
   },
   {
     id: 5,
-    title: "How we use your personal data",
-    desc: "We use the data we collect to process and fulfill your orders, communicate with you regarding your purchases or inquiries, and send promotional emails or newsletters if you have subscribed. Additionally, your data helps us improve our website, products, and overall customer experience. It also enables us to ensure the security and integrity of our platform, and to comply with applicable legal and regulatory obligations.",
+    title: "How We Use Your Data",
+    desc: "We use the information we collect to process your orders, respond to inquiries, and send newsletters or promotional content if you’ve opted in. Your data also helps us improve our website and offerings, secure our platform, and comply with legal requirements. By sharing your data with us, you’re helping us deliver a better and more personalized experience.",
   },
   {
     id: 6,
-    title: "Legal basis for the processing of personal data",
-    desc: "We process your personal data based on legal grounds that include your consent, the necessity of fulfilling a contract with you, compliance with legal obligations, and our legitimate business interests. In some cases, we may also process data to protect your vital interests or those of others. Where consent is required, you may withdraw it at any time without affecting the legality of processing carried out before your withdrawal.",
+    title: "Legal Basis for Data Processing",
+    desc: "We process your personal data based on various legal grounds, such as your consent, the necessity of fulfilling a contract with you, legal obligations, and our legitimate business interests. In some situations, we may also process data to protect vital interests. If consent is required for data processing, you have the right to withdraw it at any time without affecting previous actions taken under that consent.",
   },
   {
     id: 7,
-    title: "How we share your personal data",
-    desc: "You have control over your personal data and how it's used. You may update, correct, or delete your personal information by contacting us directly. If you no longer wish to receive marketing emails or newsletters, you can unsubscribe at any time using the link provided in our emails. Additionally, you can manage or disable cookies and tracking technologies through your browser settings.",
+    title: "Sharing Your Personal Data",
+    desc: "You control how your personal data is used. You can update, correct, or delete your information by contacting us directly. If you no longer wish to receive marketing emails, you can unsubscribe at any time through the link provided in our communications. Additionally, you can adjust your cookie preferences and tracking settings via your browser.",
   },
   {
     id: 8,
-    title: "Data and security",
-    desc: "Your privacy is important to us. This Privacy Policy outlines the types of information we collect, how we use it, and the choices you have regarding your data. By using our website or services, you agree to the terms outlined here. We are committed to protecting your personal information and ensuring transparency in how it is handled.",
+    title: "Data Security and Protection",
+    desc: "Protecting your privacy is a priority for us. This Privacy Policy outlines the types of information we collect, the purposes for which it is used, and your rights regarding your data. By using our website or services, you agree to the terms laid out in this policy, and we remain committed to ensuring the protection and transparency of your personal information.",
   },
 ];
 

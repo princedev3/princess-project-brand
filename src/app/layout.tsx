@@ -22,7 +22,7 @@ const roboto = Roboto({
   subsets: ["latin"],
 });
 export const metadata: Metadata = {
-  title: "LOLLYS",
+  title: "L.U.X.U.E",
   description: "",
 };
 

@@ -117,36 +117,18 @@ const Navbar = () => {
                 (session?.user && session?.user?.role === "ADMIN")
             )
             .map((item) => {
-              return item.title.toLowerCase() === "collection" ? (
-                <div
-                  key={item.id}
-                  ref={collectionRef}
-                  onClick={() => {
-                    setOpenCollection(!openCollection);
-                    setActiveItem("collection");
-                  }}
-                  className={`${openCollection ? "text-[#17CF97]" : "text-white "} relative capitalize flex items-center gap-2 text-[22px] z-10  cursor-default`}
-                >
-                  {item.title}
-                  <ChevronDown
-                    className={`${openCollection ? "text-[#17CF97]" : "text-white "} w-5 h-5`}
-                  />
-                </div>
-              ) : (
-                <Link
+              return     <Link
                   key={item.id}
                   href={item.pathName}
                   className={`${
-                    activeItem === item.pathName ||
-                    (item.title.toLowerCase() === "collection" &&
-                      activeItem === "collection")
-                      ? "text-[#17CF97]"
+                    activeItem === item.pathName
+                      ? "text-teal-600"
                       : "text-white"
                   } relative capitalize flex items-center gap-2 text-[22px] z-10`}
                 >
                   {item.title}
                 </Link>
-              );
+              
             })}
         </div>
 
@@ -218,7 +200,7 @@ const Navbar = () => {
                           height={30}
                           src={session?.user?.image || "/noavatar.png"}
                           alt=""
-                          className="max-w-[30px] rounded-full max-h-[30px] "
+                          className="w-[30px] rounded-full object-cover h-[30px] "
                         />
                       ) : (
                         <UserIcon

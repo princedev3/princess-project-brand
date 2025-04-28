@@ -13,9 +13,9 @@ const AboutPage = () => {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-5xl font-extrabold text-baseGreen capitalize"
+          className="text-5xl font-extrabold text-teal-600 capitalize"
         >
-          Welcome to Lolly's
+          Welcome to <span className="">LUXUE</span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
@@ -23,7 +23,7 @@ const AboutPage = () => {
           transition={{ duration: 0.8 }}
           className="text-gray-600 text-lg max-w-2xl leading-8"
         >
-          More than a store — we’re a movement of style, connection, and everyday luxury.
+          More than a store — we&rsquo;re a movement of style, connection, and everyday luxury.
         </motion.p>
       </section>
 
@@ -36,7 +36,7 @@ const AboutPage = () => {
             transition={{ duration: 0.8 }}
             className="relative w-full h-[400px] rounded-xl overflow-hidden shadow-lg"
           >
-            <Image src="/woman.png" fill alt="Our Journey" className="object-cover" />
+            <Image src="/journey.jpg" fill alt="Our Journey" className="object-cover" />
           </motion.div>
 
           <motion.div 
@@ -45,10 +45,12 @@ const AboutPage = () => {
             transition={{ duration: 0.8 }}
             className="flex flex-col gap-6"
           >
-            <h2 className="text-4xl font-bold text-baseGreen capitalize">our journey</h2>
+            <h2 className="text-4xl font-bold text-teal-600 capitalize">our journey</h2>
             <p className="text-gray-700 text-lg leading-8">
-              What started as a simple idea — to bring better, bolder products to everyday people — has grown into a passionate movement of style, substance, and service.
-            </p>
+  What began as a modest ambition — to offer superior, distinctive products to all — has grown into a distinguished community built on excellence, individuality, and unwavering service.
+</p>
+
+
           </motion.div>
         </div>
       </section>
@@ -61,11 +63,12 @@ const AboutPage = () => {
           transition={{ duration: 0.8 }}
           className="flex flex-col gap-6 order-2 md:order-1"
         >
-          <h2 className="text-4xl font-bold text-baseGreen capitalize">our vision</h2>
+          <h2 className="text-4xl font-bold text-teal-600 capitalize">our vision</h2>
           <p className="text-gray-700 text-lg leading-8 text-justify">
-            At lolly&rsquo;s, our vision is to redefine the online shopping experience by combining quality, style, and accessibility. 
-            We aim to create a destination where every click feels personal, every purchase adds value, and every customer joins a thriving community of individuality and inspiration.
-          </p>
+  At LUXUE&rsquo;s, we&rsquo;re on a vision to transform online shopping into a personalized and inspiring journey. 
+  We believe in offering quality, style, and accessibility, creating a space where every purchase feels meaningful and every customer becomes part of a vibrant community celebrating individuality.
+</p>
+
         </motion.div>
 
         <motion.div 
@@ -74,7 +77,7 @@ const AboutPage = () => {
           transition={{ duration: 0.8 }}
           className="relative w-full h-[400px] rounded-xl overflow-hidden shadow-lg order-1 md:order-2"
         >
-          <Image src="/trendy.png" fill alt="Our Vision" className="object-cover" />
+          <Image src="/vision.jpg" fill alt="Our Vision" className="object-cover" />
         </motion.div>
       </section>
 
@@ -87,7 +90,7 @@ const AboutPage = () => {
             transition={{ duration: 0.8 }}
             className="relative w-full h-[400px] rounded-xl overflow-hidden shadow-lg"
           >
-            <Image src="/mission.png" fill alt="Our Mission" className="object-cover" />
+            <Image src="/mission.jpg" fill alt="Our Mission" className="object-cover" />
           </motion.div>
 
           <motion.div 
@@ -96,11 +99,11 @@ const AboutPage = () => {
             transition={{ duration: 0.8 }}
             className="flex flex-col gap-6"
           >
-            <h2 className="text-4xl font-bold text-baseGreen capitalize">our mission</h2>
+            <h2 className="text-4xl font-bold text-teal-600 capitalize">our mission</h2>
             <p className="text-gray-700 text-lg leading-8 text-justify">
-              To empower individuals through thoughtfully curated products blending quality, style, and affordability — creating a seamless shopping experience that celebrates confidence, expression, and everyday luxury. 
-              We&rsquo;re here to redefine what it means to shop online: with honest service, intentional design, and a community-first mindset.
-            </p>
+  We believe shopping should spark confidence, creativity, and connection. That's why we deliver handpicked products that blend quality, style, and value — all with a bold commitment to redefining the online shopping experience through honesty, innovation, and a community-first mindset.
+</p>
+
           </motion.div>
         </div>
       </section>
