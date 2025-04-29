@@ -24,6 +24,7 @@ import { toast } from "sonner";
 import { useGetCouponQuery } from "../apis/_coupon_index_api";
 import LoadingPage from "@/components/navbar/loading";
 import { motion } from "framer-motion";
+import EmptyCart from "@/components/navbar/empty-cart";
 
 const Cart = () => {
   const router = useRouter();
@@ -136,60 +137,13 @@ const Cart = () => {
 
   if (!product.length) {
     return (
-      <div className="w-full h-[400px] bg-gray-50 shadow-md rounded-lg my-8 flex items-center justify-center ">
-        <div className="flex flex-col gap-6 justify-center items-center">
-          <div className="bg-gray-100 w-[120px] h-[120px] p-4  rounded-full flex items-center justify-center relative">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="#17CF97"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="#17CF97"
-              className="size-24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
-              />
-            </svg>
-            <div className="absolute inset-0 m-auto w-10 h-10 rounded-full bg-gradient-to-tr from-gray-50 to-gray-100 flex items-center justify-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="#17CF97"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="#17CF97"
-                className="size-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
-                />
-              </svg>
-            </div>
-          </div>
-          <h1 className="text-xl font-medium text-gray-700">
-            Your cart is empty!
-          </h1>
-          <p className="text-sm text-gray-600">
-            Browse our categories and discover our best deal
-          </p>
-          <Button className="relative overflow-hidden bg-baseGreen p-5 hover:bg-baseGreen cursor-pointer capitalize text-xl font-medium group">
-            <Link href={"/product"} className="relative z-10">
-              Start Shopping
-            </Link>
-            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/50 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 ease-in-out"></span>
-          </Button>
-        </div>
-      </div>
-    );
+     <EmptyCart/>
+    )
   }
   return (
     <div>
-      <h1 className="text-center mb-4 text-xl font-semibold text-baseGreen my-6 overflow-x-hidden">
-        Checkout (<span className="text-baseGreen/80">{itemCount} items</span>){" "}
+      <h1 className="text-center mb-4 text-xl font-semibold text-teal-600 my-6 overflow-x-hidden">
+        Checkout (<span className="text-teal-600/80">{itemCount} items</span>){" "}
       </h1>
       <div className="grid md:grid-flow-col md:grid-cols-[2fr_1.2fr] gap-4 ">
         <div className="grid gap-y-4 self-start ">
@@ -204,7 +158,7 @@ const Cart = () => {
                     src={item.image}
                     alt=""
                     fill
-                    className="object-contain rounded-md"
+                    className="object-cover rounded-md"
                   />
                 </div>
 
@@ -270,7 +224,7 @@ const Cart = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
           className="border rounded-lg p-3 self-start grid gap-y-5">
-            <h1 className="text-lg font-semibold text-baseGreen">
+            <h1 className="text-lg font-semibold text-teal-600">
               Billing Details
             </h1>
             <>
@@ -387,14 +341,14 @@ const Cart = () => {
               disabled={!phoneNumber || !selectedPrice || !selectedState}
               whileTap={{ scale: 0.95 }}
               onClick={() => setOpenCheckout(true)}
-              className={`bg-baseGreen font-semibold w-full rounded-[30px] pointer-events-auto text-white text-lg cursor-pointer py-3 disabled:cursor-not-allowed disabled:bg-baseGreen/80`}
+              className={`bg-teal-600 font-semibold w-full rounded-[30px] pointer-events-auto text-white text-lg cursor-pointer py-3 disabled:cursor-not-allowed disabled:bg-teal-600/80`}
             >
               Proceed to checkout
             </motion.button>
           </motion.div>
         ) : (
           <div className="border rounded-lg p-3 text-[19px] self-start grid gap-y-3">
-            <h1 className="text-xl font-semibold text-baseGreen">
+            <h1 className="text-xl font-semibold text-teal-600">
               Order Summary
             </h1>
             <div className="grid grid-flow-col  justify-between text-gray-700 items-center">
@@ -451,7 +405,7 @@ const Cart = () => {
             <PaystackButton
               disabled={!phoneNumber || !selectedPrice || !selectedState}
               {...componentProps}
-              className="w-full bg-baseGreen py-4 font-semibold text-xl  rounded-3xl text-white hover:bg-baseGreen/90 disabled:cursor-not-allowed"
+              className="w-full bg-teal-600 py-4 font-semibold text-xl  rounded-3xl text-white hover:bg-teal-600/90 disabled:cursor-not-allowed"
               metadata={{
                 name: componentProps.metadata.name,
                 phoneNumber: componentProps.metadata.phoneNumber,
@@ -475,7 +429,7 @@ const Cart = () => {
           </div>
         )}
       </div>
-      <div className="my-5 text-center text-xl text-baseGreen font-medium">
+      <div className="my-5 text-center text-xl text-teal-600 font-medium">
         We ship to anywhere within nigeria...
       </div>
     </div>
@@ -486,7 +440,7 @@ export default Cart;
 
 {
   /* <div className="border rounded-lg p-3 self-start grid gap-y-3">
-          <h1 className="text-lg font-semibold text-baseGreen">
+          <h1 className="text-lg font-semibold text-teal-600">
             Order Summary
           </h1>
           <div className="grid grid-flow-col justify-between text-gray-700 items-center">
@@ -595,7 +549,7 @@ export default Cart;
           <PaystackButton
             disabled={!phoneNumber || !selectedPrice || !selectedState}
             {...componentProps}
-            className="w-full bg-baseGreen py-2 rounded-lg text-white hover:bg-baseGreen/90 disabled:cursor-not-allowed"
+            className="w-full bg-teal-600 py-2 rounded-lg text-white hover:bg-teal-600/90 disabled:cursor-not-allowed"
             metadata={{
               name: componentProps.metadata.name,
               phoneNumber: componentProps.metadata.phoneNumber,

@@ -60,7 +60,7 @@ const Newsletter = () => {
         </form>
 
         <div className="bg-gray-700 w-full px-6 py-4 mt-6 rounded-lg max-w-lg">
-          <p className="text-sm text-gray-400 text-center">
+          <p className="text-gray-400 text-center">
             We respect your privacy. Unsubscribe anytime with a single click.
           </p>
         </div>

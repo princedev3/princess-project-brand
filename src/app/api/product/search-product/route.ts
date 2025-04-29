@@ -6,20 +6,20 @@ export const GET = async (req: NextRequest) => {
   try {
     const page = req.nextUrl.searchParams.get("page") || "1";
     const search = req.nextUrl.searchParams.get("search") || "";
-    // const brand = req.nextUrl.searchParams.get("brand") || "";
+    const brand = req.nextUrl.searchParams.get("brand") || "";
     const POST_PER_PAGE = Number(process.env.POST_PER_PAGE) || 20;
     if (isNaN(parseInt(page)) || parseInt(page) < 1) {
       return NextResponse.json({ message: "Invalid page number", status: 400 });
     }
 
-    const whereCondition: Prisma.ProductWhereInput = search
-      ? {
-          OR: [
-            { name: { contains: search, mode: "insensitive" } },
-            { brand: { contains:search, mode: "insensitive" } },
-          ],
-        }
-      : {};
+    const whereCondition: Prisma.ProductWhereInput = {};
+
+    if (search) {
+      whereCondition.name = { contains: search, mode: "insensitive" };
+    } else if (brand) {
+      whereCondition.brand = { contains: brand, mode: "insensitive" };
+    }
+
     const [allProducts, count] = await prisma.$transaction([
       prisma.product.findMany({
         where: whereCondition,
@@ -36,7 +36,7 @@ export const GET = async (req: NextRequest) => {
 
     let isFallback = false;
 
-    if (allProducts.length === 0 && search) {
+    if (allProducts.length === 0 && (search || brand)) {
       isFallback = true;
       let [allProducts, count] = await prisma.$transaction([
         prisma.product.findMany({

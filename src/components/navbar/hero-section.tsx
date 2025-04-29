@@ -39,7 +39,7 @@ const HeroSection = () => {
     return () => clearInterval(timer);
   }, []);
   return (
-    <div className="relative bg-[#16181E] py-12 overflow-hidden">
+    <div className="relative bg-[#16181E] py-12 flex items-center justify-center overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
@@ -47,7 +47,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -100 }}
           transition={{ duration: 0.5 }}
-          className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-5 items-center"
+          className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-5 mx-auto justify-center items-center"
         >
           {/* Text Section */}
           <div className="flex justify-end">

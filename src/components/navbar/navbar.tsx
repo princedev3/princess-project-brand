@@ -10,6 +10,7 @@ import { useCartStore } from "@/static-data/cart-store";
 import { motion, AnimatePresence } from "framer-motion";
 import CartIcon from "@/icons/cart-icon";
 import UserIcon from "@/icons/user-icon";
+import { LuLogOut } from "react-icons/lu";
 import { Button } from "../ui/button";
 import {
   Tooltip,
@@ -29,66 +30,17 @@ import { signOut } from "next-auth/react";
 import MobileMenu from "./mobile-view";
 import CartSheet from "./cart-sheet";
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.4,
-      ease: "easeOut",
-    },
-  },
-};
 const Navbar = () => {
- 
-  const pathName = usePathname();
-  const [openMenu, setOpenMenu] = useState(false);
-  const [openCollection, setOpenCollection] = useState(false);
-  const collectionRef = useRef<HTMLDivElement>(null);
-  const session = userStore((state) => state.session);
+   const pathName = usePathname();
+    const session = userStore((state) => state.session);
   const [activeItem, setActiveItem] = useState<string>(pathName);
   const router = useRouter();
-  const fadeInVariant = {
-    initial: {
-      y: 100,
-      opacity: 0,
-    },
-    animate: (idx: number) => ({
-      y: 0,
-      opacity: 1,
-      transition: {
-        delay: 0.05 * idx,
-      },
-    }),
-  };
-
-  useEffect(() => {
+   useEffect(() => {
     useCartStore.persist.rehydrate();
   }, []);
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        collectionRef.current &&
-        !collectionRef.current.contains(event.target as Node)
-      ) {
-        setOpenCollection(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+ ;
   useEffect(() => {
     setActiveItem(pathName);
   }, [pathName]);
@@ -102,7 +54,7 @@ const Navbar = () => {
       <div className="grid grid-flow-col mx-auto bg-baseBlack relative justify-between  items-center w-full h-[108px]">
         <Link href={"/"}>
           <Image
-            src={"/logo.svg"}
+            src={"/luxue-logo.jpg"}
             alt=""
             width={50}
             height={50}
@@ -128,61 +80,10 @@ const Navbar = () => {
                 >
                   {item.title}
                 </Link>
-              
-            })}
+                    })}
         </div>
-
-        <AnimatePresence>
-          {openCollection && (
-            <motion.div
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-              className="absolute top-24 bg-white overflow-y-auto custom-scroll-bar max-h-[250px] text-black w-full p-4 rounded shadow-lg"
-            >
-              <div className="flex h-full gap-4 items-center font-semibold mb-8 capitalize text-baseGreen">
-                <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent">
-                  Brand
-                </h1>
-                <h1 className="text-4xl  font-bold bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent">
-                  Collections
-                </h1>
-              </div>
-              <div className="grid grid-cols-4  h-full gap-7">
-                {eyeglassBrands.map((item, index) => (
-                  <motion.div
-                    variants={fadeInVariant}
-                    initial="initial"
-                    viewport={{ once: true }}
-                    custom={index}
-                    whileInView="animate"
-                    key={index}
-                    className=" capitalize  cursor-pointer "
-                  >
-                    <Link
-                      href={`/product?search=${item.toLocaleLowerCase()}`}
-                      className="w-full h-full text-gray-700"
-                    >
-                      {" "}
-                      {item}{" "}
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-        <div className="flex items-center gap-3">
-          {/* <SearchIcon
-            size={25}
-            color="#ffffff"
-            onClick={() => {
-              console.log("Cart icon clicked");
-            }}
-          /> */}
-
-        <CartSheet/>
+         <div className="flex items-center gap-3">
+           <CartSheet/>
           {
             session?.user ? (
               <DropdownMenu>
@@ -233,10 +134,7 @@ const Navbar = () => {
                 <Tooltip>
                   <TooltipTrigger>
                     <Link href={"/login"}>
-                      <LogIn
-                        size={30}
-                        className="text-white min-w-[30px] min-h-[30px]"
-                      />
+                    <LuLogOut  className="text-white min-w-[30px] min-h-[30px]"/>
                     </Link>
                   </TooltipTrigger>
                   <TooltipContent>

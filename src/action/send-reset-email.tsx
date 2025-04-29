@@ -1,8 +1,8 @@
 "use server";
 import Mail from "nodemailer/lib/mailer";
 import { createTransport } from "nodemailer";
+import { ResetPasswrodTemplate } from "@/emails/reset-password-template";
 import { render } from "@react-email/render";
-import { VerifyEmailTemplate } from "@/emails/verify-email-template";
 
 const transport = createTransport({
   host: "smtp-relay.brevo.com",
@@ -13,14 +13,14 @@ const transport = createTransport({
   },
 });
 
-export const sendVerificationEmail = async (email: string, token: string) => {
-  const confirmLink = `${process.env.BASE_URL_!}/verify-email?token=${token}`;
-  const htmlContent = await render(<VerifyEmailTemplate confirmLink={confirmLink} />);
+export const sendResetEmail = async (email: string, token: string) => {
+  const confirmLink = `${process.env.BASE_URL_!}/forgot-password?token=${token}`;
+  const htmlContent = await render(< ResetPasswrodTemplate confirmLink={confirmLink} />);
   const mailOptions: Mail.Options = {
-    from: `"luxuecollection" <${process.env.NODEMAILER_FROM_EMAIL}>`,
+    from: `"Luxue Collection" <${process.env.NODEMAILER_FROM_EMAIL}>`,
     to: email,
-    subject: "Email Confirmation",
-    html:htmlContent,
+    subject: "Reset Password Email Confirmation",
+    html:  htmlContent,
   };
   try {
     const info = await transport.sendMail(mailOptions);

@@ -37,9 +37,10 @@ const Product = () => {
   const pathName = usePathname();
   const lastSelectedRef = useRef("");
   const urlQuery = searchParams.get("search") || "";
-  const initialQuery = sanitizeQuery(urlQuery);
+  const urlBrand = sanitizeQuery(searchParams.get("brand") || "") ;
+  const initialQuery =  sanitizeQuery(urlQuery);
   const [query, setQuery] = useState(initialQuery);
-  const[selectCat,setSelectCat]=useState("")
+  const[selectCat,setSelectCat]=useState(urlBrand)
   const [page, setPage] = useState<number>(1);
   const [allProducts, setAllProducts] = useState<any[]>([]);
   const [hasMore, setHasMore] = useState(true);
@@ -90,7 +91,7 @@ const Product = () => {
     }
   };
  
-   const searchValue = form.watch("search") || selectCat
+   const searchValue = form.watch("search") 
   //  const handleSelectChange = (value: string) => {
   //   setSelectCat(value);
   //   setPage(1);
@@ -102,21 +103,54 @@ const Product = () => {
   //   });
   // };
 
-  useEffect(() => {
-    const newQuery = searchValue.trim();
-    if (newQuery !== query) {
-      
-      setQuery(newQuery);
-      setPage(1);
-      setAllProducts([]);
-      setHasMore(true);
-      productSet.current.clear();
+  // When user types in the search input
+useEffect(() => {
+  const newQuery = searchValue.trim();
 
-      router.push(`${pathName}?search=${encodeURIComponent(newQuery)}&brand=${selectCat}`, {
-        scroll: false,
-      });
-    }
-  }, [searchValue, query,selectCat]);
+  if (newQuery && newQuery !== query) {
+    setQuery(newQuery);
+    setSelectCat(""); // reset category because typing overrides select
+    setPage(1);
+    setAllProducts([]);
+    setHasMore(true);
+    productSet.current.clear();
+
+    router.push(`${pathName}?search=${encodeURIComponent(newQuery)}`, {
+      scroll: false,
+    });
+  }
+}, [searchValue]);
+
+// When user selects a category
+useEffect(() => {
+  if (selectCat) {
+    setQuery(""); // reset search because selecting category overrides input
+    setPage(1);
+    setAllProducts([]);
+    setHasMore(true);
+    productSet.current.clear();
+
+    router.push(`${pathName}?brand=${encodeURIComponent(selectCat)}`, {
+      scroll: false,
+    });
+  }
+}, [selectCat]);
+
+  // useEffect(() => {
+  //   const newQuery = searchValue.trim();
+  //   if (newQuery !== query) {
+      
+  //     setQuery(newQuery);
+  //     setPage(1);
+  //     setAllProducts([]);
+  //     setHasMore(true);
+  //     productSet.current.clear();
+
+  //     router.push(`${pathName}?search=${encodeURIComponent(newQuery)}&brand=${selectCat}`, {
+  //       scroll: false,
+  //     });
+  //   }
+  // }, [searchValue, query,selectCat]);
 
   if (isLoading && page === 1) {
     return <LoadingPage />;
@@ -149,36 +183,38 @@ const Product = () => {
           />
       <Select  value={selectCat}
   onValueChange={ (value) => {
-    form.setValue("search", "")
-    if (value === lastSelectedRef.current) {
-
-      setSelectCat(""); 
-      setTimeout(() => {
-        setSelectCat(value); 
-      }, 0);
-    } else {
-      setSelectCat(value);
-    }
-    lastSelectedRef.current = value;
+    form.setValue("search", ""),
+    setSelectCat(value)
   }}
   >
   <SelectTrigger className="w-[180px] h-full rounded-2xl border-gray-200 !outline-none">
-    <SelectValue placeholder="Default Setting" />
+    <SelectValue placeholder={"search by brand"} />
   </SelectTrigger>
-  <SelectContent>
-    <SelectItem  value="cap">cap</SelectItem>
-    <SelectItem value="shoe">shoe</SelectItem>
-    <SelectItem value="glass">glass</SelectItem>
-  </SelectContent>
+  <SelectContent className="max-h-[300px] overflow-y-auto w-[220px]">
+  <SelectItem value="cap">cap</SelectItem>
+  <SelectItem value="shoe">shoe</SelectItem>
+  <SelectItem value="glass">glass</SelectItem>
+  {/* add more items here */}
+</SelectContent>
 </Select>
           
         </form>
       </Form>
       {data?.message.isFallback && (
-        <p className="text-sm text-gray-600 mb-4">
-          No results found for "<strong>{urlQuery}</strong>". Showing popular
-          products instead.
-        </p>
+       <p className="text-sm text-gray-600 mb-4">
+       No results found for 
+       {urlQuery && (
+         <>
+           {" search "} <strong>{urlQuery}</strong>
+         </>
+       )}
+       {selectCat && !urlQuery && (
+         <>
+           {" brand "} <strong>{selectCat}</strong>
+         </>
+       )}
+       . Showing popular products instead.
+     </p>
       )}
       <InfiniteScroll
         scrollThreshold={0.6}

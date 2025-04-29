@@ -12,7 +12,7 @@ const DeliveryPolicyPage = () => {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-5xl font-extrabold text-baseGreen capitalize"
+          className="text-5xl font-extrabold text-teal-600 capitalize"
         >
           Delivery Policy
         </motion.h1>
@@ -22,7 +22,7 @@ const DeliveryPolicyPage = () => {
           transition={{ duration: 0.8 }}
           className="text-gray-600 text-lg max-w-2xl leading-8"
         >
-          At Lolly&rsquo;s, we’re committed to getting your favorite products to your doorstep quickly, safely, and reliably.
+          At luxue&rsquo;s, we&rsquo;re committed to getting your favorite products to your doorstep quickly, safely, and reliably.
         </motion.p>
       </section>
 
@@ -34,7 +34,7 @@ const DeliveryPolicyPage = () => {
           transition={{ duration: 0.8 }}
           className="flex flex-col gap-6"
         >
-          <h2 className="text-3xl font-bold text-baseGreen capitalize">Standard Delivery</h2>
+          <h2 className="text-3xl font-bold text-teal-600 capitalize">Standard Delivery</h2>
           <ul className="text-gray-700 text-lg leading-8 list-disc pl-6 space-y-3">
             <li>Orders are processed within 1-2 business days.</li>
             <li>Standard delivery typically takes 3-7 business days after dispatch.</li>
@@ -52,11 +52,11 @@ const DeliveryPolicyPage = () => {
           transition={{ duration: 0.8 }}
           className="flex flex-col gap-6"
         >
-          <h2 className="text-3xl font-bold text-baseGreen capitalize">Shipping Information</h2>
+          <h2 className="text-3xl font-bold text-teal-600 capitalize">Shipping Information</h2>
           <ul className="text-gray-700 text-lg leading-8 list-disc pl-6 space-y-3">
-            <li>We currently offer nationwide delivery within [your country name here].</li>
+            <li>We currently offer nationwide delivery within Nigeria.</li>
             <li>Shipping fees are calculated at checkout based on your delivery location.</li>
-            <li>Free shipping is available on orders over [amount you decide]!</li>
+            <li>Free shipping is available on orders over <span className="text-teal-600">₦50 000</span></li>
             <li>We do not ship to P.O. boxes at this time.</li>
           </ul>
         </motion.div>
@@ -70,7 +70,7 @@ const DeliveryPolicyPage = () => {
           transition={{ duration: 0.8 }}
           className="flex flex-col gap-6"
         >
-          <h2 className="text-3xl font-bold text-baseGreen capitalize">Delays & Exceptions</h2>
+          <h2 className="text-3xl font-bold text-teal-600 capitalize">Delays & Exceptions</h2>
           <p className="text-gray-700 text-lg leading-8">
             While we always strive to deliver on time, certain factors such as weather disruptions, increased seasonal demand, or logistic issues may cause delays. 
             We appreciate your patience and promise to keep you updated on your order status at all times.
@@ -84,13 +84,18 @@ const DeliveryPolicyPage = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="text-3xl font-bold text-baseGreen capitalize"
+          className="text-3xl font-bold text-teal-600 capitalize"
         >
           Need Help?
         </motion.h2>
         <p className="text-gray-700 text-lg max-w-xl leading-8">
           If you have any questions or concerns about your delivery, feel free to reach out to our friendly support team at{" "}
-          <span className="font-semibold underline">support@lollys.com</span>.
+          <a 
+  href="mailto:support@luxue.store" 
+  className="font-semibold underline text-blue-600 hover:text-blue-800"
+>
+support@luxue.store
+</a>
         </p>
       </section>
     </div>

@@ -30,30 +30,20 @@ const CarouselControl = ({
     }
   };
 
-  //   const scrollLeft = () => {
-  //     if (sliderRef?.current !== null)
-  //       if ( scrollSlider(sliderType) )
-  //         sliderRef.current.scrollBy({ left: -300, behavior: "smooth" });
-  //   };
 
-  //   const scrollRight = () => {
-  //     if (sliderRef?.current !== null)
-  //       if (sliderType === "productSlider")
-  //         sliderRef?.current.scrollBy({ left: 300, behavior: "smooth" });
-  //   };
   return (
     <>
       <button
         onClick={() => scrollSlider("left")}
-        className=" bg-gray-200 p-2 rounded-full shadow"
+        className=" bg-gray-200 cursor-pointer p-2 rounded-full shadow"
       >
-        <MdArrowBack />
+        <MdArrowBack className="!w-[30px] !h-[30px] " />
       </button>
       <button
         onClick={() => scrollSlider("right")}
-        className=" bg-gray-200 p-2 rounded-full shadow"
+        className=" bg-gray-200 p-2 cursor-pointer rounded-full shadow"
       >
-        <MdArrowForward />
+        <MdArrowForward className="!w-[30px] !h-[30px] " />
       </button>
     </>
   );

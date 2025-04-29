@@ -31,7 +31,7 @@ export const sendEmailWithPdf = async (orderDetails: Order) => {
     }
 
     const mailOptions = {
-      from: `"Lolly Collection" <${process.env.NODEMAILER_FROM_EMAIL}>`,
+      from: `"Luxue Collection" <${process.env.NODEMAILER_FROM_EMAIL}>`,
       to: orderDetails.useremail,
       subject,
       html: `

@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 const Trending = () => {
   return (
@@ -65,7 +66,11 @@ const Trending = () => {
     maximumFractionDigits: 0,
   }).format(50000)}
 </p>
-<button className="text-black border w-[50%] bg-white p-3 cursor-pointer hover:bg-black hover:border hover:text-white hover:border-white">add to cart</button>
+<button  className="text-black border w-[50%] bg-white p-3 cursor-pointer hover:bg-black hover:border hover:text-white hover:border-white">
+<Link href={"/product?brand=watch"}>
+  add to cart
+</Link>
+  </button>
         </div>
       </motion.div>
     </div>

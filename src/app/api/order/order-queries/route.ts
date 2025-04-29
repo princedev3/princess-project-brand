@@ -54,8 +54,7 @@ export const POST = async (req: NextRequest) => {
 
     if (createdOrder) {
       const res = await sendEmailWithPdf(createdOrder);
-      console.log(res);
-      return NextResponse.json({
+           return NextResponse.json({
         message: "Order created successfully",
         orderId: createdOrder.id,
         status: 200,

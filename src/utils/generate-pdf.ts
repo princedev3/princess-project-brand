@@ -133,7 +133,7 @@ export const generateOrderPdf = async (
       <body>
         <div class="card">
           <div class="header">
-            <div class="title">Lolly Collection</div>
+            <div class="title">Luxue Collection</div>
             <div class="title">Order ID: ${orderDetails?.id}</div>
             <div class="subtitle">
               Placed on ${format(new Date(orderDetails?.createdAt), "yyyy-MM-dd")}
@@ -202,14 +202,6 @@ export const generateOrderPdf = async (
       </body>
     </html>
   `;
-
-  // const browser = await puppeteer.launch({
-  //   args: chromium.args,
-  //   defaultViewport: chromium.defaultViewport,
-  //   executablePath: await chromium.executablePath(),
-  //   headless: chromium.headless
-  // });
-
   const browser = await puppeteer.launch(
     isProd
       ? {
@@ -226,23 +218,13 @@ export const generateOrderPdf = async (
   const page = await browser.newPage();
   await page.setContent(htmlContent, { waitUntil: "networkidle0" });
 
-  // const page = await browser.newPage();
-  // await page.setContent(htmlContent);
   const outputDir = isProd ? "/tmp" : path.join(process.cwd(), "public", "tmp");
   ensureDirExists(outputDir);
 
   const filePath = path.join(outputDir, `order-${orderDetails.id}.pdf`);
   await page.pdf({ path: filePath, format: "A4" });
-  // const filePath = path.join(
-  //   isProd ? "/tmp" : "public/tmp",
-  //   `order-${orderDetails.id}.pdf`
-  // );
-  // await page.pdf({ path: filePath, format: "A4" });
-
-  // const filePath = path.join("/tmp", `order-${orderDetails.id}.pdf`);
-
-  // await page.pdf({ path: filePath, format: "A4" });
+  
   await browser.close();
-
+ 
   return filePath;
 };

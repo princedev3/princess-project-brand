@@ -31,7 +31,7 @@ const ContactPage = () => {
       target.reset();
       toast.success(res.data.message);
       setSuccess(true);
-      setTimeout(() => setSuccess(false), 3000); // Hide success after 3 seconds
+      setTimeout(() => setSuccess(false), 3000); 
     } else {
       toast.error(res.data.message);
     }
@@ -40,7 +40,7 @@ const ContactPage = () => {
 
   return (
     <div className="w-full relative">
-      {/* Success Animation */}
+   
       <AnimatePresence>
         {success && (
           <motion.div
@@ -56,21 +56,20 @@ const ContactPage = () => {
               exit={{ scale: 0 }}
               transition={{ type: "spring", stiffness: 500, damping: 30 }}
             >
-              <CheckCircle2 size={80} className="text-green-500" />
+              <CheckCircle2 size={80} className="text-teal-600" />
               <p className="text-xl font-bold text-baseBlack">Message Sent!</p>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Hero Section */}
       <motion.section
         className="bg-[#FFFBF5] py-16 text-center"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <h1 className="text-3xl md:text-5xl font-bold text-baseBlack mb-4">
+        <h1 className="text-3xl md:text-5xl font-bold text-teal-600 mb-4">
           Get in Touch
         </h1>
         <p className="text-lg md:text-xl text-baseBlack/70">

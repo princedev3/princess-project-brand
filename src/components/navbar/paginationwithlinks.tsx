@@ -54,7 +54,7 @@ export const PaginationWithLinks = ({
           onClick={() => typeof p === "number" && changePage(p)}
           className={`px-3 py-2 rounded ${
             p === page
-              ? "bg-baseGreen hover:bg-baseGreen/80 text-white"
+              ? "bg-teal-600 hover:bg-teal-700 text-white"
               : "bg-gray-200"
           }`}
           disabled={p === "..."}

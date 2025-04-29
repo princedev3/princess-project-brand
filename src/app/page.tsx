@@ -28,7 +28,7 @@ const Home = async ({ searchParams }: PageProps) => {
       <CardSection page={page as string} />
       <CarouselComponent />
      
-      <SummerSales/>
+      {/* <SummerSales/> */}
       <Newsletter />
     </div>
   );

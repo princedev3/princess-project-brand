@@ -9,11 +9,11 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useCartStore } from '@/static-data/cart-store';
-import CartIcon from '@/icons/cart-icon';
 import Image from 'next/image';
 import { Separator } from "@/components/ui/separator"; 
 import { Button } from '../ui/button';
 import Link from 'next/link';
+import { ShoppingCart } from 'lucide-react';
 
 const CartSheet = () => {
   const { totalItems, products } = useCartStore();
@@ -26,7 +26,7 @@ const CartSheet = () => {
       <SheetTrigger>
         {totalItems > 0 && (
           <div className="relative cursor-pointer">
-            <CartIcon
+            <ShoppingCart
               size={25}
               color="white"
               className="min-w-[30px] min-h-[30px]"
@@ -42,7 +42,7 @@ const CartSheet = () => {
         <SheetHeader>
           <SheetTitle><p className="text-lg">Your Cart</p></SheetTitle>
           <SheetDescription >
-         <p className="text-lg">   Review the items in your cart before proceeding to checkout.</p>
+         <p className="text-lg mb-3 text-black">   Review the items in your cart before proceeding to checkout.</p>
           </SheetDescription>
         </SheetHeader>
 
@@ -52,18 +52,18 @@ const CartSheet = () => {
             <p className="text-center text-lg">Your cart is empty.</p>
           ) : (
             products.map((product) => (
-              <div key={product.id} className="flex items-center space-x-4">
+              <div key={product.id} className="grid grid-flow-col auto-cols-max space-x-4">
                 <Image
                   src={product.image} 
                   alt={product.name}
-                  width={50}
+                  width={60}
                   height={50}
-                  className="object-cover rounded"
+                  className="object-cover h-full w-[60px] rounded"
                 />
                 <div className="flex-1">
                   <p className="font-semibold text-lg">{product.name}</p>
                   <p className="text-gray-600 text-lg">${product.price}</p>
-                  <p className="text-gray-500 text-lg">Quantity: {product.quantity}</p> {/* Display quantity */}
+                  <p className="text-gray-500 text-lg">Quantity: {product.quantity}</p> 
                 </div>
               </div>
             ))
@@ -74,7 +74,7 @@ const CartSheet = () => {
 
      
         <Link href={"/cart"} className='cursor-pointer'>
-      <Button onClick={()=>setIsOpen(false)} className='rounded-xl w-full text-lg'>Proceed to checkout</Button>
+      <Button onClick={()=>setIsOpen(false)} className='rounded-xl w-full text-lg'>Proceed to cart</Button>
         </Link>
       </SheetContent>
     </Sheet>
