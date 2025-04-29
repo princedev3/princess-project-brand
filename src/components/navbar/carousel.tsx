@@ -16,12 +16,10 @@ import { format } from "date-fns";
 
 const CarouselComponent = () => {
   const { data, isLoading } = useGetCommentForSiderQuery(null);
-  if (isLoading) {
-    return;
+  if (isLoading || !data?.sliderComment?.length) {
+    return null;
   }
-if(data && data?.sliderComment.length <= 0){
-  return null
-}
+
   return (
     <div className="bg-gray-100 py-16 px-4">
   <div className="text-center mb-12">
