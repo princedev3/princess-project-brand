@@ -11,7 +11,7 @@ const NotFound = () => {
           Oops! The page you're looking for doesn't exist.
         </p>
         <Link href="/">
-          <span className="inline-block py-2 px-6 bg-baseGreen rounded-lg text-white text-lg  transition duration-300">
+          <span className="inline-block py-2 px-6 bg-teal-600 rounded-lg text-white text-lg  transition duration-300">
             Back to Home
           </span>
         </Link>
