@@ -56,7 +56,7 @@ export const POST = async (req: NextRequest) => {
       createdToken.email,
       createdToken.token
     );
-
+console.log(res)
     const createdUser = await prisma.user.create({
       data: {
         ...textArea,
