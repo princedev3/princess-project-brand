@@ -4,8 +4,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useCartStore } from "@/static-data/cart-store";
 
 const Trending = () => {
+  const { addToCart } = useCartStore();
   return (
     <div className="py-14 px-5 bg-black">
       <h2 className="text-3xl text-white font-semibold text-center mb-10">Trending Now</h2>
@@ -66,10 +68,24 @@ const Trending = () => {
     maximumFractionDigits: 0,
   }).format(50000)}
 </p>
-<button  className="text-black border w-[50%] bg-white p-3 cursor-pointer hover:bg-black hover:border hover:text-white hover:border-white">
-<Link href={"/product?brand=watch"}>
+<button
+//  onClick={() => {
+//   addToCart({
+//     name:"watch",
+//     id:"2",
+//     price:2000,
+//     quantity: 1,
+//     image: "/watchthree.jpg",
+//     size: "M",
+//     color: "#000",
+   
+//   });
+//   toast.success("added to cart");
+// }}
+className="text-black border w-[50%] bg-white p-3 cursor-pointer hover:bg-black hover:border hover:text-white hover:border-white">
+
   add to cart
-</Link>
+
   </button>
         </div>
       </motion.div>

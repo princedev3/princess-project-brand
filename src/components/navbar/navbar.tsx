@@ -54,11 +54,11 @@ const Navbar = () => {
       <div className="grid grid-flow-col mx-auto bg-baseBlack relative justify-between  items-center w-full h-[108px]">
         <Link href={"/"}>
           <Image
-            src={"/luxue-logo.jpg"}
+            src={"/logo.png"}
             alt=""
             width={50}
             height={50}
-            className="min-w-[63px] min-h-[63px] object-cover"
+            className="min-w-[63px] min-h-[63px] rounded-full object-cover"
           />
         </Link>
         <div className="relative gap-6 items-center rounded-lg hidden md:flex">

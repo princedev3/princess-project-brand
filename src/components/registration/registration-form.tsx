@@ -86,7 +86,7 @@ const RegistrationForm = () => {
       <div className="w-full">
         <button
           disabled={isLoading}
-          className="w-full disabled:bg-[#17CF97]/50 disabled:cursor-not-allowed bg-[#17CF97] py-2 cursor-pointer rounded-2xl text-white font-semibold capitalize "
+          className="w-full disabled:bg-teal-700 disabled:cursor-not-allowed bg-teal-600 py-2 cursor-pointer rounded-2xl text-white font-semibold capitalize "
           type="submit"
         >
           {isLoading ? (

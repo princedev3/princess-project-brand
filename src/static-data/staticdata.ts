@@ -67,52 +67,42 @@ export const browseByCategoryData = [
     id: "1",
     name: "Watch",
     icon: CameraIcon,
+    brand:"/produnct?brand=watch"
   },
-  {
-    id: "8",
-    name: "Watch",
-    icon: PhoneIcon,
-  },
+
   {
     id: "13",
-    name: "Watch",
+    name: "Phone",
     icon: PhoneIcon,
+    brand:"/produnct?brand=phone"
   },
   {
     id: "10",
     name: "SmatchWatchIcon",
     icon: SmatchWatchIcon,
+    brand:"/produnct?brand=watch"
   },
-  {
-    id: "9",
-    name: "SmatchWatchIcon",
-    icon: SmatchWatchIcon,
-  },
-  {
-    id: "2",
-    name: "SmatchWatchIcon",
-    icon: SmatchWatchIcon,
-  },
+ 
+ 
   {
     id: "3",
-    name: "SmartWatch",
+    name: "HeadPhone",
     icon: HeadPhoneIcon,
+    brand:"/produnct?brand=headphone"
   },
   {
     id: "4",
-    name: "HeadPhones",
+    name: "Computers",
     icon: ComputerIcon,
+    brand:"/produnct?brand=computer"
   },
   {
     id: "5",
     name: "Gaming",
     icon: GameIcon,
+    brand:"/produnct?brand=games"
   },
-  {
-    id: "6",
-    name: "Phone",
-    icon: GameIcon,
-  },
+ 
 ];
 
 export const carouselData = [
@@ -428,5 +418,34 @@ export const testimonials = [
     name: "Liam Grey",
     image: "/img5.png",
     text: "Fugiat nulla pariatur. Excepteur sint occaecat cupidatatIn reprehenderit in voluptate velit esse cillum dolore....Ut enim ad minim veniam, quis nostrud exercitationLorem ipsum dolor sit amet, consectetur adipiscing elit...",
+  },
+];
+
+
+
+export const heroCards = [
+  {
+    title: "Grounded in Confidence",
+    desc: "Engineered for motion, inspired by identity. These soles carry stories of style and strength.",
+    img: "/hero-image-two.png",
+    brand:"/product?brand=shoe"
+  },
+  {
+    title: "Eyes Forward, Future First",
+    desc: "Not just protection, but projection. These frames channel vision, edge, and clarity.",
+    img: "/hero-image-five.png",
+    brand:"/product?brand=glass"
+  },
+  {
+    title: "Layers of Personality",
+    desc: "Uncomplicated, unmistakable. Tops that speak louder than trends.",
+    img: "/hero-image-three.png",
+    brand:"/product?brand=polo"
+  },
+  {
+    title: "Rhythm in Every Thread",
+    desc: "Pants that bend with rhythm and roll with presence. Built to keep up, built to lead.",
+    img: "/hero-image-four.png",
+    brand:"/product?brand=trouser"
   },
 ];

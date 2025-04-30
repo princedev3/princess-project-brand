@@ -33,7 +33,7 @@ const Newsletter = () => {
   return (
     <section className="w-full bg-gray-800 py-16 px-4">
       <div className="container mx-auto flex flex-col items-center gap-8 text-center text-white">
-        <h1 className="text-3xl md:text-4xl font-bold text-baseGreen">
+        <h1 className="text-3xl md:text-4xl font-bold text-teal-600">
           Join Our Exclusive Community
         </h1>
         <p className="text-gray-300 max-w-2xl text-lg md:text-xl leading-relaxed">
@@ -53,7 +53,7 @@ const Newsletter = () => {
           <button
             disabled={isLoading}
             type="submit"
-            className="px-6 py-3 bg-baseGreen text-white rounded-md font-semibold hover:bg-green-700 transition-all"
+            className="px-6 py-3 bg-teal-600 text-white rounded-md font-semibold hover:bg-teal-700 transition-all"
           >
             {isLoading ? "Submitting..." : "Subscribe"}
           </button>

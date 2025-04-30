@@ -35,7 +35,7 @@ export default async function RootLayout({
     <html lang="en">
       <body>
         <div
-          className={`${roboto.className} grid max-w-7xl w-full overflow-x-flow mx-auto antialiased`}
+          className={`${roboto.className} grid  max-w-8xl w-full overflow-x-flow mx-auto antialiased`}
         >
           <AuthProvider>
             <SessionProvider>

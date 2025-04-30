@@ -36,7 +36,7 @@ const LoginForgotPasswordForm = () => {
     <>
       <span
         onClick={() => setOpen(!open)}
-        className="text-gray-600 text-sm cursor-pointer hover:text-[#17CF97] transition"
+        className="text-gray-600 text-sm cursor-pointer hover:text-teal-600 transition"
       >
         Forgot Password?
       </span>
@@ -61,7 +61,7 @@ const LoginForgotPasswordForm = () => {
             onClick={handleSubmit}
             type="button"
             disabled={isLoading || !verifyEmail.trim()}
-            className="bg-[#17CF97] hover:bg-[#17CF97] text-white font-medium px-4 py-2 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed"
+            className="bg-teal-600 hover:bg-teal-700 text-white font-medium px-4 py-2 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isLoading ? "Sending..." : "Send"}
           </button>

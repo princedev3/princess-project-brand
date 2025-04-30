@@ -2,7 +2,8 @@
 import { useRef, useState } from "react";
 import CarouselControl from "./carousel-control";
 import { browseByCategoryData } from "@/static-data/staticdata";
-
+import Link from "next/link";
+ 
 
 const BrowseByCategory = () => {
   const sliderRef = useRef<HTMLDivElement | null>(null);
@@ -23,7 +24,8 @@ const BrowseByCategory = () => {
     
       <div className="flex gap-5 overflow-x-hidden snap-x" ref={sliderRef}>
         {browseByCategoryData.map((item, index) => (
-          <div
+          <Link
+          href={item.brand}
             key={index}
             onClick={() => setSelectCategory(item.id)}
             className={`${
@@ -34,7 +36,7 @@ const BrowseByCategory = () => {
               <item.icon size={45}  color={"black"} />
             </div>
             <div className="text-lg mt-2">{item.name}</div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

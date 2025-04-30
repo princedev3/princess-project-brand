@@ -21,11 +21,11 @@ const Register = async () => {
         <div className=" min-h-screen w-full flex justify-center items-center    ">
           <div className="grid w-full max-w-5xl mx-auto shadow md:shadow-none p-7  rounded-2xl ">
             <Image
-              src={"/logo.svg"}
+              src={"/logo.png"}
               alt=""
-              width={50}
-              height={50}
-              className="w-[50px] h-[50px] mx-auto"
+              width={80}
+              height={80}
+              className="w-[80px] object-cover h-[80px] mx-auto"
             />
             <RegistrationForm />
             <form

@@ -38,10 +38,10 @@ const ForgotPasswordVerifyForm = () => {
   return (
     <form action="" className="grid mx-auto">
       <div className="flex items-center gap-1">
-        <span className="font-semibold text-[#17CF97] text-xl">
+        <span className="font-semibold text-teal-600 text-xl">
           Verifying Email
         </span>
-        <BeatLoader size={10} color="#17CF97" />
+        <BeatLoader size={10} color="#0d9488" />
       </div>
     </form>
   );

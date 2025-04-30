@@ -58,7 +58,7 @@ const ClientLoginForm = () => {
         </div>
         <div className="w-full">
           <button
-            className="w-full bg-[#17CF97] py-2 cursor-pointer rounded-2xl text-white font-semibold capitalize"
+            className="w-full bg-teal-600 py-2 cursor-pointer rounded-2xl text-white font-semibold capitalize"
             type="submit"
             disabled={loading}
           >

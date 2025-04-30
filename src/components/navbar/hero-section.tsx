@@ -2,29 +2,11 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import { heroCards } from "@/static-data/staticdata";
 
-const heroCards = [
-  {
-    title: "Step Into Style – Premium Footwear",
-    desc: "From casual strolls to statement moments, our shoes are crafted to support your stride with elegance and comfort. Walk with purpose, walk with class.",
-    img: "/shoe.jpg",
-  },
-  {
-    title: "Elevate Your Gaze – Signature Eyewear",
-    desc: "Sleek, bold, and unapologetically you — our eyewear turns every glance into a style statement. See the world differently, look unforgettable.",
-    img: "/heroimage.png",
-  },
-  {
-    title: "Everyday Cool – Essential Tees & Shirts",
-    desc: "Designed for comfort, tailored for confidence. Whether layered or solo, our shirts redefine effortless style for every day of the week.",
-    img: "/shirt.jpg",
-  },
-  {
-    title: "Tailored Movement – Modern Trousers",
-    desc: "Fit meets function in our collection of versatile trousers. From boardrooms to city streets, they move with you and your ambition.",
-    img: "/trouser.jpg",
-  },
-];
+
+
 
 const HeroSection = () => {
   const [current, setCurrent] = useState(0);
@@ -49,7 +31,7 @@ const HeroSection = () => {
           transition={{ duration: 0.5 }}
           className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-5 mx-auto justify-center items-center"
         >
-          {/* Text Section */}
+ 
           <div className="flex justify-end">
             <div className="flex flex-col gap-6 text-white md:pl-5 max-w-xl">
               <div className="text-[32px] text-center md:text-left md:text-[50px] font-light leading-tight">
@@ -58,9 +40,12 @@ const HeroSection = () => {
               <p className="text-lg text-center md:text-left text-gray-300">
                 {heroCards[current].desc}
               </p>
-              <button className="text-2xl border w-full cursor-pointer capitalize py-3 rounded-md ">
-                Shop now
-              </button>
+              <motion.button
+  whileTap={{ scale: 0.95 }}
+  className="text-2xl border w-full cursor-pointer capitalize py-3 rounded-md transition-transform duration-200"
+>
+ <Link href={heroCards[current].brand}>Shop now</Link>
+</motion.button>
             </div>
           </div>
 
