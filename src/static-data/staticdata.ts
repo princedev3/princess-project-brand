@@ -67,20 +67,20 @@ export const browseByCategoryData = [
     id: "1",
     name: "Watch",
     icon: CameraIcon,
-    brand:"/produnct?brand=watch"
+    brand:"/product?brand=watch"
   },
 
   {
     id: "13",
     name: "Phone",
     icon: PhoneIcon,
-    brand:"/produnct?brand=phone"
+    brand:"/product?brand=phone"
   },
   {
     id: "10",
     name: "SmatchWatchIcon",
     icon: SmatchWatchIcon,
-    brand:"/produnct?brand=watch"
+    brand:"/product?brand=watch"
   },
  
  
@@ -88,19 +88,19 @@ export const browseByCategoryData = [
     id: "3",
     name: "HeadPhone",
     icon: HeadPhoneIcon,
-    brand:"/produnct?brand=headphone"
+    brand:"/product?brand=headphone"
   },
   {
     id: "4",
     name: "Computers",
     icon: ComputerIcon,
-    brand:"/produnct?brand=computer"
+    brand:"/product?brand=computer"
   },
   {
     id: "5",
     name: "Gaming",
     icon: GameIcon,
-    brand:"/produnct?brand=games"
+    brand:"/product?brand=games"
   },
  
 ];
