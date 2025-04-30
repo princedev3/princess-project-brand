@@ -32,10 +32,10 @@ function TestimonialSlider() {
   return (
     <div className="w-full overflow-hidden mx-auto">
       <Carousel
-        setApi={setApi} // Set the carousel API reference
+        setApi={setApi}
         plugins={[
           Autoplay({
-            delay: 2000, // Autoplay the carousel every 2 seconds
+            delay: 2000,
           }),
         ]}
         opts={{
