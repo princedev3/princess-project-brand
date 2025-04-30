@@ -155,6 +155,8 @@ useEffect(() => {
   if (isLoading && page === 1) {
     return <LoadingPage />;
   }
+
+  console.log(selectCat)
   return (
     <div className="mb-5 px-3">
       <h1 className="text-3xl font-semibold my-10 mx-auto w-ful text-center">
@@ -191,6 +193,7 @@ useEffect(() => {
     <SelectValue placeholder={"search by brand"} />
   </SelectTrigger>
   <SelectContent className="max-h-[300px] overflow-y-auto w-[220px]">
+  <SelectItem value="all">All</SelectItem>
   <SelectItem value="cap">cap</SelectItem>
   <SelectItem value="shoe">shoe</SelectItem>
   <SelectItem value="glass">glass</SelectItem>
@@ -200,7 +203,10 @@ useEffect(() => {
           
         </form>
       </Form>
-      {data?.message.isFallback && (
+      {
+        selectCat==="all"?null :
+   <div className="">
+     {data?.message.isFallback && (
        <p className="text-sm text-gray-600 mb-4">
        No results found for 
        {urlQuery && (
@@ -216,6 +222,8 @@ useEffect(() => {
        . Showing popular products instead.
      </p>
       )}
+   </div>
+      }
       <InfiniteScroll
         scrollThreshold={0.6}
         dataLength={allProducts.length}
