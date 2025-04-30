@@ -14,7 +14,7 @@ const transport = createTransport({
 });
 
 export const sendResetEmail = async (email: string, token: string) => {
-  const confirmLink = `${process.env.BASE_URL_!}/forgot-password?token=${token}`;
+  const confirmLink = `${process.env.NEXT_PUBLIC_BASE_URL!}/forgot-password?token=${token}`;
   const htmlContent = await render(< ResetPasswrodTemplate confirmLink={confirmLink} />);
   const mailOptions: Mail.Options = {
     from: `"Luxue Collection" <${process.env.NODEMAILER_FROM_EMAIL}>`,

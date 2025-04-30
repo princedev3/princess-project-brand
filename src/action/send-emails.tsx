@@ -14,7 +14,7 @@ const transport = createTransport({
 });
 
 export const sendVerificationEmail = async (email: string, token: string) => {
-  const confirmLink = `${process.env.BASE_URL_!}/verify-email?token=${token}`;
+  const confirmLink = `${process.env.NEXT_PUBLIC_BASE_URL}/verify-email?token=${token}`;
   const htmlContent = await render(<VerifyEmailTemplate confirmLink={confirmLink} />);
   const mailOptions: Mail.Options = {
     from: `"luxuecollection" <${process.env.NODEMAILER_FROM_EMAIL}>`,
