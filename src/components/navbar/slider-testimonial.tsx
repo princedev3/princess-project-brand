@@ -63,7 +63,7 @@ function TestimonialSlider() {
           ))}
         </CarouselContent>
 
-        {/* Information below the active carousel item */}
+      
         <div className="mt-6 max-w-md mx-auto px-4 text-center">
           <p className="text-gray-600 text-sm sm:text-base mb-4">
             {testimonials[current]?.text}
