@@ -26,10 +26,10 @@ export const productApi = createApi({
     }),
     getSearchProduct: builder.query<
       ProductType,
-      { page: number; query: string ,brand:string}
+      { page: number; query: string }
     >({
-      query: ({ page, query,brand }) => ({
-        url: `/product/search-product?page=${page}&search=${query}&brand=${brand}`,
+      query: ({ page, query }) => ({
+        url: `/product/search-product?page=${page}&search=${query}`,
         method: "GET",
       }),
       providesTags: ["Product"],
