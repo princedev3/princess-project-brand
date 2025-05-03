@@ -12,8 +12,8 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(prisma) as unknown as Adapter,
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
     Credentials({
       credentials: {
@@ -25,12 +25,11 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
           const user = await prisma.user.findUnique({
             where: { email: credentials.email as string },
           });
-
           if (!user) return null;
           const { email, password } = credentials;
 
           if (!email || !password) {
-            console.warn("Missing email or password");
+         
             return null;
           }
 
@@ -40,7 +39,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
           );
 
           if (!isPasswordCorrect) {
-            console.log("Incorrect password for user:", email);
+          
             return null;
           }
 
@@ -55,16 +54,17 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
           return user;
         } catch (error: unknown) {
           if (error instanceof Error) {
-            console.error("Error in authorize callback:", error.message);
+         
             return null;
           } else {
-            console.error("Unexpected error:", error);
+           
             return null;
           }
         }
       },
     }),
   ],
+    secret: process.env.NEXTAUTH_SECRET,
   pages: {
     error: "/auth/error",
   },
@@ -73,55 +73,46 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       if (account?.provider === "google") {
         const existingUser = await prisma.user.findUnique({
           where: { email: user.email as string },
+          include: { accounts: true },  
         });
-
+      
         if (existingUser) {
-          await prisma.account.upsert({
+          const existingAccount = await prisma.account.findUnique({
             where: {
               provider_providerAccountId: {
-                provider: "google",
+                provider: 'google',
                 providerAccountId: account.providerAccountId,
               },
             },
-            update: {},
-            create: {
-              userId: existingUser.id,
-              provider: "google",
-              providerAccountId: account.providerAccountId,
-              type: account.type,
-              access_token: account.access_token,
-              expires_at: account.expires_at,
-              id_token: account.id_token,
-              scope: account.scope,
-              token_type: account.token_type,
-            },
           });
-        } else {
-          await prisma.user.create({
-            data: {
-              email: user.email as string,
-              name: user.name || "New User",
-              image: user.image as string,
-              role: "USER",
-              password: "",
-              accounts: {
-                create: {
-                  provider: "google",
-                  providerAccountId: account.providerAccountId,
-                  type: account.type,
-                  access_token: account.access_token,
-                  expires_at: account.expires_at,
-                  id_token: account.id_token,
-                  scope: account.scope,
-                  token_type: account.token_type,
-                },
+      
+          if (!existingAccount) {
+            const sessionState = account.session_state ? String(account.session_state) : null;
+         
+            await prisma.account.create({
+              data: {
+                userId: existingUser.id as string,
+                provider: account.provider,
+                providerAccountId: account.providerAccountId,
+                access_token: account.access_token ?? null,
+                refresh_token: account.refresh_token ?? null,
+                expires_at: account.expires_at ?? null,
+                token_type: account.token_type ?? null,
+                scope: account.scope ?? null,
+                id_token: account.id_token ?? null,
+                session_state: sessionState as string,
+                type: "oauth",
               },
-            },
-          });
+            });
+          }
         }
       }
-      return true;
-    },
+      
+      return true; 
+      
+    
+    }
+,    
     async jwt({ token, user }) {
       if (user) {
         token.role = user.role;

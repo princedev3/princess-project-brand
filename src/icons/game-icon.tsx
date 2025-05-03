@@ -19,7 +19,7 @@ export const GameIcon = ({
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_2603_1931)">
+      <g clipPath="url(#clip0_2603_1931)">
         <path
           d="M40 12H8C5.79086 12 4 13.7909 4 16V32C4 34.2091 5.79086 36 8 36H40C42.2091 36 44 34.2091 44 32V16C44 13.7909 42.2091 12 40 12Z"
           stroke={color}

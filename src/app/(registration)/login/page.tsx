@@ -12,6 +12,9 @@ import ClientLoginForm from "@/components/registration/client-login";
 const Login = async () => {
   const session = await auth();
 
+  if (session) {
+    redirect("/");
+  }
 
   return (
     <div className="grid md:grid-cols-2">
@@ -92,6 +95,7 @@ const Login = async () => {
               action={async () => {
                 "use server";
                 const res = await signIn("google");
+              
               }}
               className="grid gap-y-7 mt-7"
             >

@@ -12,9 +12,11 @@ const SessionProvider = ({ children }: { children: React.ReactNode }) => {
       return;
     }
     // if (!session) {
-    //   return router.push("/login");
-    // }
-    if (session) setSession(session);
+      // }
+      if (session) {
+    // router.push("/");
+      setSession(session)
+    };
   }, [session]);
   return <>{children}</>;
 };
