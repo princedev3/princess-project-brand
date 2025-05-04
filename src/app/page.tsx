@@ -23,12 +23,10 @@ const Home = async ({ searchParams }: PageProps) => {
     <div className="flex flex-col w-full">
       <DiscountOverlay />
       <HeroSection />
-      <TrendingNow/>
+      <TrendingNow  page={page as string} />
      <BrowseByCategory/>
       <CardSection page={page as string} />
       <CarouselComponent />
-     
-      {/* <SummerSales/> */}
       <Newsletter />
     </div>
   );

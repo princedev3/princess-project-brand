@@ -18,7 +18,7 @@ const RegistrationForm = () => {
         toast.success(res.data.message);
         return;
       }
-      toast.success(res.data.message);
+      toast.error(res.data.message);
     } catch (error) {
       console.log(error);
     }

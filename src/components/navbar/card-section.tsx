@@ -28,10 +28,7 @@ const CardSection = ({ page }: { page: string }) => {
       <h1 className="text-[30px] font-semibold capitalize text-baseBlack  mx-auto my-5">
         Our Products
       </h1>
-
       <motion.div
-        
-    
         className="grid grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))] gap-5 "
       >
         {(data &&

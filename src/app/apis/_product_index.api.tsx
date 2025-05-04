@@ -41,6 +41,13 @@ export const productApi = createApi({
       }),
       providesTags: ["Product"],
     }),
+    getProductByTrending: builder.query<{message:Product[]},null>({
+      query: () => ({
+        url: `/product/trend-product`,
+        method: "GET",
+      }),
+      providesTags: ["Product"],
+    }),
     getSingleProduct: builder.query<SingleProductType, string>({
       query: (id) => ({
         url: `/product/product-queries/${id}`,
@@ -77,4 +84,5 @@ export const {
   useUpdateProductMutation,
   useDeleteSingleProductMutation,
   useGetProductByBrandQuery,
+  useGetProductByTrendingQuery
 } = productApi;

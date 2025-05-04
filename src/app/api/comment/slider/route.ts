@@ -3,9 +3,9 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const GET = async (req: NextRequest) => {
   try {
-    const POST_PER_PAGE = Number(process.env.POST_PER_PAGE) || 10;
+    
     const sliderComment = await prisma.rating.findMany({
-      take: POST_PER_PAGE,
+      take: 6,
       orderBy: {
         createdAt: "desc",
       },

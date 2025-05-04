@@ -27,6 +27,15 @@ export const POST = async (req: NextRequest) => {
         }
       }
     });
+    const findExistingUser = await prisma.user.findFirst({
+      where:{
+        email:textArea?.email
+      }
+    })
+
+    if(findExistingUser){
+      return NextResponse.json({ message: "can not create user", status: 500 });
+    }
     const images: string[] = imgFile.length
       ? await Promise.all(
           imgFile.map(async (item) => {
@@ -56,7 +65,7 @@ export const POST = async (req: NextRequest) => {
       createdToken.email,
       createdToken.token
     );
-console.log(res)
+
     const createdUser = await prisma.user.create({
       data: {
         ...textArea,

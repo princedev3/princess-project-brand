@@ -42,7 +42,7 @@ const CartSheet = () => {
         <SheetHeader>
           <SheetTitle><p className="text-lg">Your Cart</p></SheetTitle>
           <SheetDescription >
-         <p className="text-lg mb-3 text-black">   Review the items in your cart before proceeding to checkout.</p>
+         <p className="text-lg mb-3 text-black/85">Review the items in your cart before proceeding to checkout.</p>
           </SheetDescription>
         </SheetHeader>
 
@@ -62,7 +62,14 @@ const CartSheet = () => {
                 />
                 <div className="flex-1">
                   <p className="font-semibold text-lg">{product.name}</p>
-                  <p className="text-gray-600 text-lg">${product.price}</p>
+                  <p className="text-gray-600 text-lg">
+                  {new Intl.NumberFormat('en-NG', {
+style: 'currency',
+currency: 'NGN',
+minimumFractionDigits: 0,
+maximumFractionDigits: 0,
+}).format(product.price)}
+                    </p>
                   <p className="text-gray-500 text-lg">Quantity: {product.quantity}</p> 
                 </div>
               </div>
