@@ -1,17 +1,12 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-
-import {useGetProductByTrendingQuery } from "@/app/apis/_product_index.api";
 import TrendingProduct from "./trending-product";
+import { Product } from "@prisma/client";
 
-const Trending = ({page}:{page:string}) => {
-
-    const { data, isLoading, isError } = useGetProductByTrendingQuery(null);
-  if(isLoading){
-    return null
-  }
-
+const Trending = ({page,data}:{page:string,data: {
+    message: Product[];
+} }) => {
   return (
     <div className="py-14 px-5 bg-black">
       <h2 className="text-3xl text-white font-semibold text-center mb-10">Trending Now</h2>

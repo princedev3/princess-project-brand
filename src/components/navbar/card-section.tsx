@@ -1,16 +1,13 @@
 "use client";
 import React from "react";
 import SingleCard from "./single-card";
-import { useGetAllProductQuery } from "@/app/apis/_product_index.api";
 import { PaginationWithLinks } from "./paginationwithlinks";
-import LoadingPage from "./loading";
 import { useScroll, motion, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { Product } from "@prisma/client";
 
-const CardSection = ({ page }: { page: string }) => {
-  const { data, isLoading, isError } = useGetAllProductQuery(
-    parseInt((page as string) || "1")
-  );
+const CardSection = ({ page,data }: { page: string,data:{message:{ allProducts:Product[], count:number }} }) => {
+
 
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -20,9 +17,7 @@ const CardSection = ({ page }: { page: string }) => {
   const scrollProgress = useTransform(scrollYProgress, [0, 1], [0.98, 1]);
   const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
 
-  if (isLoading) {
-    return <LoadingPage />;
-  }
+ 
   return (
     <div className="mb-7  px-5 md:px-20">
       <h1 className="text-[30px] font-semibold capitalize text-baseBlack  mx-auto my-5">

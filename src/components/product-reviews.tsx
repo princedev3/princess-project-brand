@@ -22,10 +22,13 @@ import { Button } from "./ui/button";
 import { userStore } from "@/static-data/user-session";
 import StarRating from "./comment-section/star-rating";
 import ListComment from "./comment-section/list-comment";
+import { CreatedComment } from "@/static-data/types";
 
-const ProductReviews = ({ id }: { id: string }) => {
-  const { data: commentData, isLoading: isGettingCommentLoading } =
-    useGetAllCommentQuery(id as string);
+const ProductReviews = ({ id ,commentData}: { id: string,commentData: {
+    createdComment: CreatedComment[];
+    averageRating: number;
+} }) => {
+
   const session = userStore((state) => state.session);
   const [message, setMessage] = useState("");
   const [emojiOpen, setEmojiOpen] = useState(false);
@@ -78,9 +81,7 @@ const ProductReviews = ({ id }: { id: string }) => {
       console.log(error);
     }
   };
-  if (isGettingCommentLoading) {
-    return null;
-  }
+ 
   return (
     <div className="mb-[50px] grid gap-y-10">
       <div className="grid  gap-5 gap-y-5 ">
@@ -174,7 +175,6 @@ const ProductReviews = ({ id }: { id: string }) => {
 
         <ListComment
           commentData={commentData && commentData?.createdComment}
-          isGettingCommentLoading={isGettingCommentLoading}
         />
       </div>
     </div>

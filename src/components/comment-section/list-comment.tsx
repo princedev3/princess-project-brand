@@ -12,9 +12,7 @@ import { format } from "date-fns";
 
 const ListComment = ({
   commentData,
-  isGettingCommentLoading,
 }: {
-  isGettingCommentLoading: boolean;
   commentData: CreatedComment[] | undefined;
 }) => {
 

@@ -1,4 +1,4 @@
-import nodemailer from "nodemailer";
+import nodemailer from "nodemailer"; 
 import fs from "fs/promises";
 import { Order } from "@prisma/client";
 import { generateOrderPdf } from "./generate-pdf";

@@ -214,7 +214,7 @@ export const generateOrderPdf = async (
           headless: true,
         }
   );
-
+ 
   const page = await browser.newPage();
   await page.setContent(htmlContent, { waitUntil: "networkidle0" });
 

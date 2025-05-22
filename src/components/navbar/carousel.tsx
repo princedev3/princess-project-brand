@@ -2,15 +2,12 @@
 import React from "react";
 import Image from "next/image";
 import StarRating from "../comment-section/star-rating";
-import { useGetCommentForSiderQuery } from "@/app/apis/_comment_index_api";
 import { format } from "date-fns";
 import {motion} from "framer-motion"
-const CarouselComponent = () => {
-  const { data, isLoading } = useGetCommentForSiderQuery(null);
-  if (isLoading || !data?.sliderComment?.length) {
-    return null;
-  }
-
+import { SliderCommentType } from "@/static-data/types";
+const CarouselComponent = ({data}:{data: {
+    sliderComment: SliderCommentType[];
+}}) => {
   return (
 <div className="bg-gray-200  py-20 px-6">
   <motion.div 

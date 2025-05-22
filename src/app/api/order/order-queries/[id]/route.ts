@@ -39,7 +39,7 @@ export const PUT = async (req: NextRequest, { params }: ParamType) => {
       data: {
         deliveryStatus: body,
       },
-    });
+    }); 
     await sendEmailWithPdf(fetchOrder);
     return NextResponse.json({ message: "order updated", status: 200 });
   } catch (error) {

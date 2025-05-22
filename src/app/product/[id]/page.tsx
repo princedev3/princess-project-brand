@@ -1,5 +1,5 @@
 "use client";
-import { useGetSingleProductQuery } from "@/app/apis/_product_index.api";
+import { useGetProductByBrandQuery, useGetSingleProductQuery } from "@/app/apis/_product_index.api";
 import LoadingPage from "@/components/navbar/loading";
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/static-data/cart-store";
@@ -15,6 +15,9 @@ import SingleSecure from "@/icons/single-search";
 import { Separator } from "@/components/ui/separator";
 import RelatedProduct from "@/components/related-product";
 import ProductReviews from "@/components/product-reviews";
+import { Product } from "@prisma/client";
+import { useGetAllCommentQuery } from "@/app/apis/_comment_index_api";
+import { CreatedComment } from "@/static-data/types";
 
 const SingleProduct = () => {
   const { id } = useParams();
@@ -36,6 +39,9 @@ const SingleProduct = () => {
   const pathname = usePathname();
   const [showReview, setShowReview] = useState("review");
   const { data, isLoading } = useGetSingleProductQuery(id as string);
+  const { data:relatedProductData, isLoading:relatedLoading } = useGetProductByBrandQuery(data?.getSingleFetch?.brand as string,{skip:!data?.getSingleFetch?.brand});
+  const { data: commentData, isLoading: isGettingCommentLoading } =
+    useGetAllCommentQuery(id as string);
   const [copied, setCopied] = useState(false);
   const [selectColored, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
@@ -44,7 +50,7 @@ const SingleProduct = () => {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
   
 
-  if (isLoading) {
+  if (isLoading || relatedLoading || isGettingCommentLoading) {
     return <LoadingPage />;
   }
   const copyToClipboard = async () => {
@@ -274,9 +280,14 @@ const SingleProduct = () => {
         {showReview === "desc" && (
           <div className="mb-5 text-lg">{data?.getSingleFetch.desc}</div>
         )}
-        {showReview === "review" && <ProductReviews id={id as string} />}
+        {showReview === "review" && <ProductReviews id={id as string} commentData={commentData as  {
+    createdComment: CreatedComment[];
+    averageRating: number;
+}} />}
       </div>
-      <RelatedProduct brand={data?.getSingleFetch?.brand as string} />
+      <RelatedProduct data={relatedProductData as {
+    relatedProduct: Product[];
+} } />
       {isOverlayOpen && (
   <motion.div
     initial={{ opacity: 0 }}

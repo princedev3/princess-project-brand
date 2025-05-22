@@ -1,13 +1,12 @@
 "use client";
-import { useGetProductByBrandQuery } from "@/app/apis/_product_index.api";
 import React from "react";
 import SingleCard from "./navbar/single-card";
+import { Product } from "@prisma/client";
 
-const RelatedProduct = ({ brand }: { brand: string }) => {
-  const { data, isLoading } = useGetProductByBrandQuery(brand);
-  if (isLoading) {
-    return;
-  }
+const RelatedProduct = ({ data }: { data: {
+    relatedProduct: Product[];
+}  }) => {
+ 
   return (
     <div>
       <h1 className="text-2xl md:text-3xl font-medium text-baseBlack mb-6 ">
