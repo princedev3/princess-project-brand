@@ -1,4 +1,4 @@
-import { Html, Head, Body, Container, Section, Text, Button } from "@react-email/components";
+import { Html, Head, Body, Container, Section, Text, Button ,Link} from "@react-email/components";
 import * as React from "react";
 
 interface VerificationEmailProps {
@@ -14,7 +14,7 @@ interface VerificationEmailProps {
           <Section style={{ textAlign: "center" }}>
             <Text style={{ fontSize: "24px", fontWeight: "bold" }}>Verify your email address</Text>
             <Text>Click the button below to verify your email address:</Text>
-            <Button
+            <Link
               href={confirmLink}
               style={{
                 backgroundColor: "#28a745",
@@ -28,7 +28,7 @@ interface VerificationEmailProps {
               }}
             >
               Verify Email
-            </Button>
+            </Link>
           </Section>
           <Section style={{ textAlign: "center", marginTop: "30px" }}>
             <Text>Follow us on:</Text>

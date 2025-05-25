@@ -1,4 +1,4 @@
-import { Html, Head, Body, Container, Section, Text, Button } from "@react-email/components";
+import { Html, Head, Body, Container, Section, Text, Link } from "@react-email/components";
 import * as React from "react";
 
 interface VerifyEmailProps {
@@ -18,7 +18,7 @@ export const ResetPasswrodTemplate = ({ confirmLink }: VerifyEmailProps) => {
             <Text style={{textAlign:"center", fontSize: "16px", lineHeight: "1.5", color: "#555" }}>
               Kindly click the button below to verify your email and complete your reset password process.
             </Text>
-            <Button
+            <Link
               href={confirmLink}
               style={{
                 backgroundColor: "#28a745",
@@ -33,7 +33,7 @@ export const ResetPasswrodTemplate = ({ confirmLink }: VerifyEmailProps) => {
               }}
             >
               Reset Password
-            </Button>
+            </Link>
           </Section>
 
           <Section style={{ textAlign: "center", marginTop: "40px" }}>
