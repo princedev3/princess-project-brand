@@ -21,13 +21,9 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
   if (readyState) {
     return (
-      <div
-        className={`${!authRoute.includes(pathName) ? "pt-[108px]" : ""} grid w-full mx-auto`}
-      >
         <Provider store={store}>
-          <div className="fixed top-0 left-0  w-full z-50">
+          <div className="sticky top-0 left-0  w-full z-50">
             <div className="mx-auto w-full grid max-w-8xl">
-           
               {!authRoute.includes(pathName) && <Navbar />}
             </div>
           </div>
@@ -36,7 +32,6 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
           {!authRoute.includes(pathName) && <Footer />}
           <Toaster position="bottom-right" />
         </Provider>
-      </div>
     );
   }
 };

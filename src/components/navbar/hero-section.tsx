@@ -68,7 +68,7 @@ const HeroSection = () => {
           <button
             key={idx}
             onClick={() => setCurrent(idx)}
-            className={`w-3 h-3 rounded-full ${
+            className={`w-6 h-[6px] rounded-sm  ${
               idx === current ? "bg-white" : "bg-gray-500"
             }`}
           ></button>

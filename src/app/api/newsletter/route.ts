@@ -10,8 +10,13 @@ export const POST = async (req: NextRequest) => {
       },
     });
     if (existingSubcriber) {
+      await prisma.newsletterSubscriber.delete({
+        where:{
+          id: existingSubcriber.id
+        }
+      })
       return NextResponse.json({
-        message: "you already subscribed to newsletter.",
+        message: "you have  unsubscribed to newsletter.",
         status: 200,
       });
     }

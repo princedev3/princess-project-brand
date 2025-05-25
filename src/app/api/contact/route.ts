@@ -14,8 +14,8 @@ export const POST = async (req: NextRequest) => {
     });
 
     const res = await transporter.sendMail({
-      from: `"Lolly Collection" <${process.env.NODEMAILER_FROM_EMAIL}>`,
-      to: "lollycollectionfit@gmail.com",
+      from: `"Luxue Collection" <${process.env.NODEMAILER_FROM_EMAIL}>`,
+      to: "luxuecollection@gmail.com",
       subject: "New Contact Form Submission",
       html: `
         <p><strong>Name:</strong> ${name}</p>
@@ -24,7 +24,6 @@ export const POST = async (req: NextRequest) => {
         <p>${message}</p>
       `,
     });
-
     return NextResponse.json({ message: "Email sent", status: 200 });
   } catch (error) {
     console.error("Contact form error:", error);

@@ -4,13 +4,15 @@ import dynamic from "next/dynamic";
 import AdminSideBar from "@/components/admin/admin-side-bar";
 
 const Sales = dynamic(() => import("@/components/admin/sales-section/sales"));
-const Coupons = dynamic(() => import("@/components/admin/coupon/coupon"));
 const AllUsers = dynamic(() => import("@/components/admin/customer/all-user"));
 const Products = dynamic(
   () => import("@/components/admin/product-section/products")
 );
 const Analytics = dynamic(
   () => import("@/components/admin/analytics/analytics")
+);
+const Newsletter = dynamic(
+  () => import("@/components/admin/newsletter/newsletter")
 );
 
 const AdminPage = () => {
@@ -26,8 +28,8 @@ const AdminPage = () => {
         return <Analytics />;
       case "users":
         return <AllUsers />;
-      case "coupons":
-        return <Coupons />;
+      case "newsletter":
+        return <Newsletter/>;
       default:
         return (
           <div className="text-gray-500 text-center">Select a section</div>
@@ -43,7 +45,6 @@ const AdminPage = () => {
           setSelectedSection={setSelectedSection}
         />
       </div>
-
       <div className="flex-1">{renderSection()}</div>
     </div>
   );

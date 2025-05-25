@@ -40,7 +40,7 @@ const Navbar = () => {
     useCartStore.persist.rehydrate();
   }, []);
 
- ;
+ console.log(session)
   useEffect(() => {
     setActiveItem(pathName);
   }, [pathName]);

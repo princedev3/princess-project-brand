@@ -1,5 +1,4 @@
 "use client"
-import DiscountOverlay from "@/components/coupon/discountOverlay";
 import CardSection from "@/components/navbar/card-section";
 import CarouselComponent from "@/components/navbar/carousel";
 import BrowseByCategory from "@/components/navbar/carousel-product";
@@ -29,7 +28,6 @@ const Home = () => {
 
   return (
     <div className="flex flex-col w-full">
-      <DiscountOverlay />
       <HeroSection />
       <TrendingNow  page={page as string} data={data as {message:Product[]}} />
      <BrowseByCategory/>

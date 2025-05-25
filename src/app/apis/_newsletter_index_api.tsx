@@ -13,7 +13,14 @@ export const newsletterApi = createApi({
         body: newsLetterData,
       }),
     }),
+    adminNewsLetter: builder.mutation({
+      query: (newsLetterData) => ({
+        url: "/newsletter/adminNewsletter",
+        method: "POST",
+        body: newsLetterData,
+      }),
+    }),
   }),
 });
 
-export const { useCreateNewsLetterMutation } = newsletterApi;
+export const { useCreateNewsLetterMutation,useAdminNewsLetterMutation } = newsletterApi;

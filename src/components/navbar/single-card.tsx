@@ -132,9 +132,9 @@ const SingleCard = ({
             });
             toast.success("added to cart");
           }}
-          className={`bg-black w-[80%] rounded-[30px] pointer-events-auto text-white font-medium cursor-pointer py-3 disabled:cursor-not-allowed disabled:bg-black/50`}
+          className={`bg-teal-600 w-[80%] rounded-[30px] pointer-events-auto text-white font-medium cursor-pointer py-3 disabled:cursor-not-allowed disabled:bg-black/50`}
         >
-          Add to cart
+          Add to cart 
         </motion.button>
       </div>
     </motion.div>

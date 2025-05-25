@@ -8,7 +8,7 @@ export default function GlobalError({
 }) {
   return (
     <html>
-      <body className="min-h-screen bg-gray-100 flex items-center justify-center">
+      <body className="min-h-screen mx-auto bg-gray-100 flex items-center justify-center">
         <div className="bg-white shadow-xl rounded-2xl p-8 max-w-md w-full text-center">
           <h2 className="text-2xl font-bold text-red-600 mb-4">
             Something went wrong!

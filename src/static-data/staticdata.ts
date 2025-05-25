@@ -220,9 +220,9 @@ export const adminDetails = [
   },
   {
     id: "5",
-    title: "coupons",
+    title: "Newsletter",
     icon: CiDiscount1,
-    activeState: "coupons",
+    activeState: "newsletter",
   },
 ];
 
