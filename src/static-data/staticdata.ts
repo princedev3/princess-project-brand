@@ -302,12 +302,12 @@ export const ratings = [
 export const contactInfo = [
   {
     type: "email",
-    to: "luxuecollection@gmail.com",
+    to: "mailto:luxuecollection@gmail.com",
     icon: Email,
   },
   {
     type: "Phone Number",
-    to: "+2349054579781",
+    to: "tel:+1234567890",
     icon: TelIcon,
   },
   {

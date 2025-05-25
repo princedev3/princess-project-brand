@@ -146,7 +146,7 @@ const ContactPage = () => {
               <item.icon size={40} className="text-baseGreen" />
               <h3 className="text-xl font-bold capitalize">{item.type}</h3>
               <a
-                href={item.to}
+                 href={`${item.to}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-base text-baseBlack/70 break-words hover:underline"
