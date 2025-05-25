@@ -15,8 +15,8 @@ const target = e.target as HTMLFormElement
 const formdata = new FormData(target)
 const title= formdata.get("title")
 const message= formdata.get("message")
-const res = adminNewsLetter({title,message})
-console.log(res)
+const res =await adminNewsLetter({title,message})
+
     }
   return (
     <motion.section

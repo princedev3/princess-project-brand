@@ -1,14 +1,12 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
-import { ChevronDown, LogIn, Menu, X } from "lucide-react";
+import React, { useEffect,useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
-import { eyeglassBrands, navbarItems } from "@/static-data/staticdata";
+import {  navbarItems } from "@/static-data/staticdata";
 import { userStore } from "@/static-data/user-session";
 import { useCartStore } from "@/static-data/cart-store";
-import { motion, AnimatePresence } from "framer-motion";
-import CartIcon from "@/icons/cart-icon";
 import UserIcon from "@/icons/user-icon";
 import { LuLogOut } from "react-icons/lu";
 import { Button } from "../ui/button";
@@ -39,8 +37,6 @@ const Navbar = () => {
    useEffect(() => {
     useCartStore.persist.rehydrate();
   }, []);
-
- console.log(session)
   useEffect(() => {
     setActiveItem(pathName);
   }, [pathName]);
