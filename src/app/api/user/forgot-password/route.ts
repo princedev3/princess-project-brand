@@ -20,7 +20,7 @@ export const POST = async (req: NextRequest) => {
       findExistingUser?.email as string
     );
 
-    const res = await sendResetEmail(
+   await sendResetEmail(
       findExistingUser?.email as string,
       generateResetToken.token
     );
