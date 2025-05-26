@@ -8,6 +8,7 @@ import { generateVerificationtokenbyemail } from "@/action/generate-token-action
 import { sendVerificationEmail } from "@/action/send-emails";
 import { Adapter } from "next-auth/adapters";
 
+
 export const { auth, handlers, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(prisma) as unknown as Adapter,
   providers: [
@@ -32,7 +33,6 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
          
             return null;
           }
-
           const isPasswordCorrect = await bcrypt.compare(
             password as string,
             user?.password as string
@@ -64,13 +64,25 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       },
     }),
   ],
-    secret: process.env.AUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
   pages: {
     error: "/auth/error",
   },
   callbacks: {
     async signIn({ user, account }) {
       if (account?.provider === "google") {
+        const accounts = await prisma.account.findMany({
+  where: {
+    user: null,
+  },
+});
+if(accounts){
+  await prisma.account.deleteMany({
+  where: {
+    user: null,
+  },
+});
+}
         const existingUser = await prisma.user.findUnique({
           where: { email: user.email as string },
           include: { accounts: true },  

@@ -34,7 +34,7 @@ export const POST = async (req: NextRequest) => {
     })
 
     if(findExistingUser){
-      return NextResponse.json({ message: "can not create user", status: 500 });
+      return NextResponse.json({ message: "check user details", status: 500 });
     }
     const images: string[] = imgFile.length
       ? await Promise.all(

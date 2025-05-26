@@ -35,62 +35,6 @@ const Login = async () => {
             <div className="w-full">
               <LoginForgotPasswordForm />
             </div>
-            {/* <form
-                action={async (formData) => {
-                  "use server";
-                  const password = formData.get("password");
-                  const email = formData.get("email");
-                  await signIn("credentials", {
-                    email,
-                    password,
-                    redirect: true,
-                    callbackUrl: "/",
-                  });
-                }}
-                className="w-full grid gap-y-5 bg-white"
-              >
-                <div className="grid gap-y-1">
-                  <label
-                    htmlFor=""
-                    className="text-xl capitalize text-gray-600"
-                  >
-                    email:
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    className="py-1 px-2 text-gray-700 outline-none border border-gray-400  rounded-2xl"
-                  />
-                </div>
-                <div className="grid gap-y-1">
-                  <label
-                    htmlFor=""
-                    className="text-xl capitalize text-gray-600"
-                  >
-                    password:
-                  </label>
-                  <div className="w-full">
-                    <LoginPassword />
-                    <LoginForgotPasswordForm />
-                  </div>
-                </div>
-
-                <div className="w-full">
-                  <button
-                    className="w-full bg-[#17CF97] py-2 cursor-pointer rounded-2xl text-white font-semibold capitalize "
-                    type="submit"
-                  >
-                    Login
-                  </button>
-                  <Link
-                    href={"/register"}
-                    className="text-[12px] text-gray-500 cursor-pointer text-center flex items-center justify-center"
-                  >
-                    dont have an account? Register
-                  </Link>
-                </div>
-              </form> */}
             <form
               action={async () => {
                 "use server";
